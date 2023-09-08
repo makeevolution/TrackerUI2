@@ -1,6 +1,6 @@
 # TrackerUI2
 
-## Setup
+## Initial Setup
 1. Download node `snap install node --channel=18 --classic`
 2. Download angular `npm install -g @angular/cli`. `-g` is so it is accessible from all folders
 3. `ng new trackerui2`
