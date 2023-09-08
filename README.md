@@ -1,4 +1,4 @@
-# TrackerUI2
+# TrackerUI2 project
 
 ## Initial Setup
 1. Download node `snap install node --channel=18 --classic`
