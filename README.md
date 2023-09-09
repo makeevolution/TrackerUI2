@@ -10,3 +10,6 @@
 - Components are the building blocks of an angular app
 - A component is defined by the @Component decorator. You are basically making a new HTML tag. You set the selector key to define your component's HTML tag name and template key to define what is inside your selector
 - You import components in a module. The module allows you to use your component in a html defined in the same level as your module
+- Use `ng g c nameofcomponent` to auto-create a new component and add it to the app's `app.module.ts` automatically, so that your component can be used everywhere
+- Directives are used in order to modify a native DOM element behavior
+
