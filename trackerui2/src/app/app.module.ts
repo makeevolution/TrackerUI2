@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
 import { CourseComponent } from './course/course.component'
 
+
+import {CoursesService} from './courses.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,7 @@ import { CourseComponent } from './course/course.component'
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CoursesService], /* dependency injection; injects a singleton instance to all requesting constructors in the app */
   bootstrap: [AppComponent]
 })
 export class AppModule { }
