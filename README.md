@@ -14,3 +14,9 @@
 - Use `ng g c nameofcomponent` to auto-create a new component and add it to the app's `app.module.ts` automatically, so that your component can be used everywhere
 - Directives are used in order to modify a native DOM element behavior
 
+# Concepts:
+- Directives (ngModule, ngFor, etc.)
+- Bindings (one and two way binding, template binding, style binding, class binding, event binding)
+- Dependency injection
+- Components
+- Component API (i.e. Component input output)
