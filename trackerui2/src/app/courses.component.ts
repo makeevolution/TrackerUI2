@@ -7,10 +7,6 @@ import { CoursesService } from './courses.service';
 	<h2>{{ title }}</h2>  <!-- this is called property binding. This is one way though. -->
    <h2 [textContent]="title"></h2> <!-- This is called attribute binding. This achieves the same as {{ title }} above, but through a different way.  -->
 
-   <button class="btn btn-primary">
-      Save
-   </button>
-
    <table>
       <tr>
       <!-- Sometimes attribute bindng won't work, since the binding is actually to DOM and not to the HTML itself. Example: -->
@@ -20,6 +16,16 @@ import { CoursesService } from './courses.service';
       </tr>
    </table>
 
+   <!-- This is an example of class binding. We can dynamically set a class to be included or not using a way similar to attribute binding-->
+   <button class="btn btn-primary" [class.active]="isActive">
+      ClassBindingExample
+   </button>
+   <!-- This is an example of style binding. We can dynamically set a class value using ways similar to attribute binding-->
+   <button [style.backgroundColor]="isActive ? 'blue' : 'red'">
+      StyleBindingExample
+   </button>
+
+   <!-- This is an example of how we can do a loop -->
    <ul>
 	    <li *ngFor="let course of courses">
 		   {{ course }}
@@ -33,10 +39,10 @@ export class CoursesComponent {
    courses;
    colSpan = 20;
    imageUrl = "https://loremflickr.com/640/360"
+   isActive = false
    constructor(service: CoursesService) {
       this.courses = service.getCourses();
    }
-
 }
 /* ngFor is a Directive. In Angular, a directive is a way to modify the DOM.
    The * before the ngFor is to signify that you are modifying the DOM structure by adding or removing an element.
