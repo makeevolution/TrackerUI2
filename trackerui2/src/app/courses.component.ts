@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CoursesService } from './courses.service';
+import { EmailService } from './email.service';
 
 @Component({
    selector: 'courses', // makes <courses> available for use
@@ -33,6 +34,9 @@ import { CoursesService } from './courses.service';
    <!-- Some events in Angular can be directly filtered https://www.tutorialspoint.com/angular2/user_input_key_event_filtering.htm For example -->
    <input (keyup.enter)="onKeyUp()"/>
 
+   <!-- This is an example of how we can capture user inputs on an input field -->
+   <input #email (keydown.enter)="onKeyDown(email.value)"/>
+
    <!-- This is an example of how we can do a loop -->
    <ul>
 	    <li *ngFor="let course of courses">
@@ -54,6 +58,7 @@ export class CoursesComponent {
    onDivClicked(){
       console.log("div clicked")
    }
+   
    onSave($event: any){
       // $event.stopPropagation();  // Use this so that parent DOM's event handlers are not executed (i.e. onDivClicked would not be executed)
       console.log("button was clicked", $event)
@@ -61,6 +66,10 @@ export class CoursesComponent {
 
    onKeyUp(){
       console.log("enter was pressed!")
+   }
+
+   onKeyDown(email_address: string){
+      console.log(email_address)
    }
 }
 /* ngFor is a Directive. In Angular, a directive is a way to modify the DOM.
