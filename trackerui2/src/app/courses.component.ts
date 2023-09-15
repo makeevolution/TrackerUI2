@@ -29,6 +29,10 @@ import { CoursesService } from './courses.service';
    <div (click)="onDivClicked()">  <!-- In Angular, a () signifies an event to listen to on the DOM. RHS of = is the function to be executed upon event on the DOM element, defined in class below. -->
       <button (click)="onSave($event)">Save</button>  <!-- the $event contains the data about the event that was performed -->
    </div>
+
+   <!-- Some events in Angular can be directly filtered https://www.tutorialspoint.com/angular2/user_input_key_event_filtering.htm For example -->
+   <input (keyup.enter)="onKeyUp()"/>
+
    <!-- This is an example of how we can do a loop -->
    <ul>
 	    <li *ngFor="let course of courses">
@@ -53,6 +57,10 @@ export class CoursesComponent {
    onSave($event: any){
       // $event.stopPropagation();  // Use this so that parent DOM's event handlers are not executed (i.e. onDivClicked would not be executed)
       console.log("button was clicked", $event)
+   }
+
+   onKeyUp(){
+      console.log("enter was pressed!")
    }
 }
 /* ngFor is a Directive. In Angular, a directive is a way to modify the DOM.
