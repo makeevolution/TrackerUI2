@@ -40,10 +40,10 @@ import { CoursesService } from './courses.service';
         With this, changes in the input box here will be saved as the field's value -->
    <input [(ngModel)]="email_twowaybindingexample" (keyup.enter)="logContentsOfInputForm()"/>
 
-   <!-- This is an example of how we can do a loop -->
+   <!-- This is an example of how we can do a loop. In the template binding, we also demonstrate piping i.e. applying functions to values -->
    <ul>
 	    <li *ngFor="let course of courses">
-		   {{ course }}
+		   {{ course | uppercase }}
 	    </li>
        <img src="{{ imageUrl }}" />
    </ul>
