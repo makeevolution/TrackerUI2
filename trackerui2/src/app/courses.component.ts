@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CoursesService } from './courses.service';
-import { EmailService } from './email.service';
 
 @Component({
    selector: 'courses', // makes <courses> available for use
@@ -34,8 +33,12 @@ import { EmailService } from './email.service';
    <!-- Some events in Angular can be directly filtered https://www.tutorialspoint.com/angular2/user_input_key_event_filtering.htm For example -->
    <input (keyup.enter)="onKeyUp()"/>
 
-   <!-- This is an example of how we can capture user inputs on an input field -->
+   <!-- This is an example of template binding: how we can capture values of a specific element. -->
    <input #email (keydown.enter)="onKeyDown(email.value)"/>
+   
+   <!-- This is an example of two way binding. We need to also import Angular Forms module so we get the ngModel directive.
+        With this, changes in the input box here will be saved as the field's value -->
+   <input [(ngModel)]="email_twowaybindingexample" (keyup.enter)="logContentsOfInputForm()"/>
 
    <!-- This is an example of how we can do a loop -->
    <ul>
@@ -52,13 +55,15 @@ export class CoursesComponent {
    colSpan = 20;
    imageUrl = "https://loremflickr.com/640/360"
    isActive = false
+
+   email_twowaybindingexample = "initialvalue@test.com"
    constructor(service: CoursesService) {
       this.courses = service.getCourses();
    }
    onDivClicked(){
       console.log("div clicked")
    }
-   
+
    onSave($event: any){
       // $event.stopPropagation();  // Use this so that parent DOM's event handlers are not executed (i.e. onDivClicked would not be executed)
       console.log("button was clicked", $event)
@@ -70,6 +75,10 @@ export class CoursesComponent {
 
    onKeyDown(email_address: string){
       console.log(email_address)
+   }
+
+   logContentsOfInputForm(){
+      console.log(this.email_twowaybindingexample)
    }
 }
 /* ngFor is a Directive. In Angular, a directive is a way to modify the DOM.
