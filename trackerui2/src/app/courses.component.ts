@@ -6,7 +6,6 @@ import { CoursesService } from './courses.service';
    template: `
 	<h2>{{ title }}</h2>  <!-- this is called property binding. This is one way though. -->
    <h2 [textContent]="title"></h2> <!-- This is called attribute binding. This achieves the same as {{ title }} above, but through a different way.  -->
-
    <table>
       <tr>
       <!-- Sometimes attribute bindng won't work, since the binding is actually to DOM and not to the HTML itself. Example: -->
