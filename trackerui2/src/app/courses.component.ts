@@ -1,22 +1,26 @@
-import {Component} from '@angular/core';
-import {CoursesService} from './courses.service';
+import { Component } from '@angular/core';
+import { CoursesService } from './courses.service';
 
 @Component({
    selector: 'courses', // makes <courses> available for use
    template: `
 	<h2>{{ title }}</h2>
+   <h2 [textContent]="title"</h2>  /* These two things achieve the same. These are called property binding. */
+
 	<ul>
 	    <li *ngFor="let course of courses">
-		{{ course }}
+		   {{ course }}
 	    </li>
-        </ul>
+       <img src="{{ imageUrl }}" />
+   </ul>
    `
 })
 export class CoursesComponent {
    title = "List of courses";
    courses;
-   constructor(service: CoursesService){
-	this.courses = service.getCourses();
+   imageUrl = "https://loremflickr.com/640/360"
+   constructor(service: CoursesService) {
+      this.courses = service.getCourses();
    }
 
 }
