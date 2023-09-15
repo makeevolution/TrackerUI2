@@ -24,7 +24,11 @@ import { CoursesService } from './courses.service';
    <button [style.backgroundColor]="isActive ? 'blue' : 'red'">
       StyleBindingExample
    </button>
-
+   
+   <!-- This is an example of how we can execute event handling -->
+   <div (click)="onDivClicked()">  <!-- In Angular, a () signifies an event to listen to on the DOM. RHS of = is the function to be executed upon event on the DOM element, defined in class below. -->
+      <button (click)="onSave($event)">Save</button>  <!-- the $event contains the data about the event that was performed -->
+   </div>
    <!-- This is an example of how we can do a loop -->
    <ul>
 	    <li *ngFor="let course of courses">
@@ -42,6 +46,13 @@ export class CoursesComponent {
    isActive = false
    constructor(service: CoursesService) {
       this.courses = service.getCourses();
+   }
+   onDivClicked(){
+      console.log("div clicked")
+   }
+   onSave($event: any){
+      // $event.stopPropagation();  // Use this so that parent DOM's event handlers are not executed (i.e. onDivClicked would not be executed)
+      console.log("button was clicked", $event)
    }
 }
 /* ngFor is a Directive. In Angular, a directive is a way to modify the DOM.
