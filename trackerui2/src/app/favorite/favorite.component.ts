@@ -6,9 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./favorite.component.css']
 })
 export class FavoriteComponent {
-  @Input() isFavorite: boolean = false;  // Make isFavorite accessible from outside
+  @Input('isFavorite') isSelected: boolean = false;  // Make isFavorite accessible from outside
   constructor(){}
   onStarClicked(){
-    this.isFavorite = !this.isFavorite
+    this.isSelected = !this.isSelected
   }
 }
