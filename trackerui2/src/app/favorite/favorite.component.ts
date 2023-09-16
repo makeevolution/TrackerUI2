@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
+export interface FavoriteChangedEventArgs {
+  newValue: boolean
+}
+
 @Component({
   selector: 'favorite',
   templateUrl: './favorite.component.html',
@@ -13,6 +17,6 @@ export class FavoriteComponent {
 
   onStarClicked(){
     this.isSelected = !this.isSelected
-    this.change.emit(this.isSelected);
+    this.change.emit({newValue: this.isSelected});
   }
 }

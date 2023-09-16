@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FavoriteChangedEventArgs } from './favorite/favorite.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent {
   }
   title = 'angular trackerui2';
 
-  onFavoriteChanged(isFavorite: string) {
-    console.log("Favorite changed: ", isFavorite)
+  onFavoriteChanged(eventArgs: FavoriteChangedEventArgs) {
+    console.log("Favorite changed: ", eventArgs.newValue)
   }
 }
