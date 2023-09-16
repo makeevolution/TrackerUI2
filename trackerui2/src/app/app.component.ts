@@ -10,4 +10,8 @@ export class AppComponent {
     isFavorite: true
   }
   title = 'angular trackerui2';
+
+  onFavoriteChanged() {
+    console.log("Favorite changed")
+  }
 }

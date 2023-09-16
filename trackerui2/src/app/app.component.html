@@ -1,3 +1,9 @@
 <h1>AasdfasfdasdfNgular</h1>
 <!-- <courses/> --> 
-<favorite [isFavorite]="post.isFavorite"/>  <!-- The Input decorator in favorite component makes the field changeable from this app component-->
+<favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChanged()"/>  <!-- 
+                                                                            The Input decorator in favorite component makes the field changeable from this app component.
+                                                                            The component now also has an event called change.
+                                                                            This event will be emitted by a function inside the component.
+                                                                            The event is marked in the class by a field decorated with Output.
+                                                                            Upon emission of that event, the app.component's onFavoriteChanged function will be called
+                                                                            -->

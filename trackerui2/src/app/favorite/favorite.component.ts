@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'favorite',
@@ -7,8 +7,12 @@ import { Component, Input } from '@angular/core';
 })
 export class FavoriteComponent {
   @Input('isFavorite') isSelected: boolean = false;  // Make isFavorite accessible from outside
+  @Output() change = new EventEmitter();
+
   constructor(){}
+
   onStarClicked(){
     this.isSelected = !this.isSelected
+    this.change.emit();
   }
 }
