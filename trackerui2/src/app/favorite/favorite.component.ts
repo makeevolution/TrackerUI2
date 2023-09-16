@@ -11,12 +11,12 @@ export interface FavoriteChangedEventArgs {
 })
 export class FavoriteComponent {
   @Input('isFavorite') isSelected: boolean = false;  // Make isFavorite accessible from outside
-  @Output() change = new EventEmitter();
+  @Output('change') click = new EventEmitter();
 
   constructor(){}
 
   onStarClicked(){
     this.isSelected = !this.isSelected
-    this.change.emit({newValue: this.isSelected});
+    this.click.emit({newValue: this.isSelected});
   }
 }
