@@ -7,7 +7,14 @@ export interface FavoriteChangedEventArgs {
 @Component({
   selector: 'favorite',
   templateUrl: './favorite.component.html',
-  styleUrls: ['./favorite.component.css']
+  styles: [
+    `
+    .glyphicon {
+    color: green;
+}
+    `
+  ],
+  styleUrls: ['./favorite.component.css'],  // won't be applied; styles will override styleUrls 
 })
 export class FavoriteComponent {
   @Input('isFavorite') isSelected: boolean = false;  // Make isFavorite accessible from outside
