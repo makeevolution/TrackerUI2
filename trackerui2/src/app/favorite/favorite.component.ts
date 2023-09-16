@@ -13,6 +13,6 @@ export class FavoriteComponent {
 
   onStarClicked(){
     this.isSelected = !this.isSelected
-    this.change.emit();
+    this.change.emit(this.isSelected);
   }
 }

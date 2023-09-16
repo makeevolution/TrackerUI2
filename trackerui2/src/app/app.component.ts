@@ -11,7 +11,7 @@ export class AppComponent {
   }
   title = 'angular trackerui2';
 
-  onFavoriteChanged() {
-    console.log("Favorite changed")
+  onFavoriteChanged(isFavorite: string) {
+    console.log("Favorite changed: ", isFavorite)
   }
 }
